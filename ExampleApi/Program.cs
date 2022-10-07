@@ -1,3 +1,5 @@
+using Microsoft.OpenApi.Models;
+
 namespace ExampleApi
 {
     public class Program
@@ -11,7 +13,11 @@ namespace ExampleApi
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
-            builder.Services.AddSwaggerGen();
+            builder.Services.AddSwaggerGen(c =>
+            {
+                // Set the API title.
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Example API", Version = "v1", });
+            });
 
             var app = builder.Build();
 
@@ -19,7 +25,9 @@ namespace ExampleApi
             if (app.Environment.IsDevelopment())
             {
                 app.UseSwagger();
-                app.UseSwaggerUI();
+
+                // Remove the "Try it Out" button.
+                app.UseSwaggerUI(o => o.EnableTryItOutByDefault());
             }
 
             app.UseHttpsRedirection();
