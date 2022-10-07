@@ -4,3 +4,4 @@
   - Initial commit
   - Standard repo files added
   - Remove default controller and tidy slightly
+  - Add sample (static) data source
