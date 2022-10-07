@@ -1,4 +1,5 @@
 using ExampleApi.Middleware;
+using ExampleApi.Swagger;
 using Microsoft.OpenApi.Models;
 
 namespace ExampleApi
@@ -18,6 +19,9 @@ namespace ExampleApi
             {
                 // Set the API title.
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Example API", Version = "v1", });
+
+                // Require a correlation ID.
+                c.OperationFilter<CorrelationIdAttribute>();
             });
 
             builder.Services.AddTransient<DurationMiddleware>();
