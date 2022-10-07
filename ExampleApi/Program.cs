@@ -1,3 +1,4 @@
+using ExampleApi.Middleware;
 using Microsoft.OpenApi.Models;
 
 namespace ExampleApi
@@ -19,7 +20,9 @@ namespace ExampleApi
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Example API", Version = "v1", });
             });
 
+            builder.Services.AddTransient<DurationMiddleware>();
             var app = builder.Build();
+            app.UseDurationMiddleware();
 
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())

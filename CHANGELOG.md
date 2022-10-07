@@ -18,3 +18,4 @@
   - Use `ApiError` for consistent/simple error messages
     - Returns the chosen HTTP status code
     - Response body contains a model with both an error code and a message
+  - Add duration middleware to log performance within response headers
