@@ -13,8 +13,8 @@ namespace ExampleApi.Controllers
     [Consumes(MediaTypeNames.Application.Json)]
     [Produces(MediaTypeNames.Application.Json)]
     [ProducesResponseType((int)HttpStatusCode.OK)]
-    [ProducesResponseType((int)HttpStatusCode.BadRequest)]
-    [ProducesResponseType((int)HttpStatusCode.NotFound)]
+    [ProducesResponseType(typeof(ApiError), (int)HttpStatusCode.BadRequest)]
+    [ProducesResponseType(typeof(ApiError), (int)HttpStatusCode.NotFound)]
     public class ExampleController : ControllerBase
     {
         /// <summary>Example request returning OK with result data.</summary>
@@ -30,7 +30,7 @@ namespace ExampleApi.Controllers
         [Route("/BadRequest")]
         public async Task<ActionResult<IEnumerable<Person>>> GetBadRequest()
         {
-            return BadRequest("An address must be provided.");
+            return ApiError.BadRequest(ApiCode.MissingDetails, "An address must be provided.");
         }
 
         /// <summary>Example request returning 404 Not Found with an ApiError response model.</summary>
@@ -38,7 +38,7 @@ namespace ExampleApi.Controllers
         [Route("/NotFound")]
         public async Task<ActionResult<IEnumerable<Person>>> GetNotFound()
         {
-            return NotFound("No matching Person was found.");
+            return ApiError.NotFound(ApiCode.NobodyFound, "No matching Person was found.");
         }
     }
 }
