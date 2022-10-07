@@ -12,3 +12,4 @@
     - The interface version won't allow BadRequest etc
     - `ActionResult` allows both data and BadRequest
       - Strongly-typed responses with support for other status codes
+  - Add consumes/produces Swagger annotations to the controller

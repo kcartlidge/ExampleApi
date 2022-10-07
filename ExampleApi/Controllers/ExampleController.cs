@@ -2,12 +2,19 @@
 
 using ExampleApi.Models;
 using Microsoft.AspNetCore.Mvc;
+using System.Net.Mime;
+using System.Net;
 
 namespace ExampleApi.Controllers
 {
     /// <summary>Requests to show different example responses.</summary>
     [Route("api/[controller]")]
     [ApiController]
+    [Consumes(MediaTypeNames.Application.Json)]
+    [Produces(MediaTypeNames.Application.Json)]
+    [ProducesResponseType((int)HttpStatusCode.OK)]
+    [ProducesResponseType((int)HttpStatusCode.BadRequest)]
+    [ProducesResponseType((int)HttpStatusCode.NotFound)]
     public class ExampleController : ControllerBase
     {
         /// <summary>Example request returning OK with result data.</summary>
