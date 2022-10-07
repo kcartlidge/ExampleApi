@@ -20,3 +20,4 @@
     - Response body contains a model with both an error code and a message
   - Add duration middleware to log performance within response headers
   - Add required Correlation ID attribute
+  - Include XML summary comments in the Swagger page

@@ -1,6 +1,7 @@
 using ExampleApi.Middleware;
 using ExampleApi.Swagger;
 using Microsoft.OpenApi.Models;
+using System.Reflection;
 
 namespace ExampleApi
 {
@@ -22,6 +23,12 @@ namespace ExampleApi
 
                 // Require a correlation ID.
                 c.OperationFilter<CorrelationIdAttribute>();
+
+                // Requires XML summary during Build (default location).
+                // Decorates the Swagger stuff with more details.
+                var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+                c.IncludeXmlComments(xmlPath);
             });
 
             builder.Services.AddTransient<DurationMiddleware>();
