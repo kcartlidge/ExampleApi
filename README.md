@@ -7,9 +7,7 @@ An example API in C#/DotNet 6 (Core) with sequential commits to show reference c
 
 ## Creating the API
 
-This is a standard out of the box API which is then iterated over with further commits.
-[You can view those commits here](https://github.com/kcartlidge/ExampleApi/commits/main).
-To get to the initial starting point yourself in a new API, these are the choices I made:
+This is a standard out of the box API which is then iterated over with further commits. [You can view those commits here](https://github.com/kcartlidge/ExampleApi/commits/main). To get to the initial starting point yourself in a new API, these are the choices I made:
 
 Choosing a project type:
 
@@ -25,6 +23,4 @@ Additional information:
 
 ---
 
-Please note that this repo includes a `.editorconfig` file.
-Visual Studio will happily use it, but you should *not* edit it with its GUI editor.
-Doing so will likely add a large number of Microsoft-specific extra settings.
+Please note that this repo includes a `.editorconfig` file. Visual Studio will happily use it, but you should *not* edit it with its GUI editor. Doing so will likely add a large number of Microsoft-specific extra settings.
