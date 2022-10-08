@@ -7,6 +7,11 @@
   - Relocating the Swagger page by changing the URL
   - Add SwaggerDoc API metadata
   - Suppress "Missing XML comment" warnings
+  - Updated the endpoint URLs to be slug-style
+  - Included an example POST endpoint
+    - Takes a request model
+    - Validates (always passes; no model rules yet)
+  - Added `<remarks>` to further document the API
 - 2022-10-07
   - Initial commit
   - Standard repo files added

@@ -5,5 +5,6 @@ namespace ExampleApi.Models
     {
         public const string MissingDetails = "0001";
         public const string NobodyFound = "0002";
+        public const string ValidationFailed = "0003";
     }
 }
