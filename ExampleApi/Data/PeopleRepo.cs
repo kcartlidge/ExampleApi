@@ -1,6 +1,5 @@
 #pragma warning disable CS1998 // Async method lacks 'await' operators and will run synchronously
 
-using ExampleApi.Models;
 
 namespace ExampleApi.Data
 {
@@ -32,6 +31,7 @@ namespace ExampleApi.Data
         public static async Task AddPerson(Person person)
         {
             EnsurePeople();
+            person.ID = people.Max(x => x.ID) + 1;
             people.Add(person);
         }
 

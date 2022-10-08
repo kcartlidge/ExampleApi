@@ -4,6 +4,8 @@ using ExampleApi.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Net.Mime;
 using System.Net;
+using ExampleApi.Data;
+using ExampleApi.Models.RequestModels;
 
 namespace ExampleApi.Controllers
 {
@@ -39,14 +41,13 @@ namespace ExampleApi.Controllers
         /// 
         ///     POST /create
         ///     {
-        ///         "id": 6,
         ///         "name": "Person #6",
         ///         "age": 30
         ///     }
         /// </remarks>
         [HttpPost]
         [Route("/people")]
-        public async Task<ActionResult> PostOK(Person person)
+        public async Task<ActionResult> PostOK(PersonRequestModel person)
         {
             // Add the new Person if they pass validation.
             // In reality, the ModelState checks are handled by Core itself
@@ -54,14 +55,20 @@ namespace ExampleApi.Controllers
             // endpoint. This is a precautionary check.
             if (ModelState.IsValid)
             {
-                await Data.PeopleRepo.AddPerson(person);
+                // Safe to use the values as they passed the ModelState check.
+                // Any business-related rules should be added down the chain.
+                await Data.PeopleRepo.AddPerson(new Person
+                {
+                    Name = person.Name.Trim(),
+                    Age = person.Age.GetValueOrDefault(),
+                });
                 return Ok();
             }
 
-            // There are currently no validation rules on the incoming model
-            // so this will never be reached as the ModelState is valid.
-            // If it weren't, Core handles it before it reaches here anyway;
-            // this response is primarily to satisfy the method signature.
+            // There are validation rules on the incoming model, however this
+            // will never be reached as Core handles the ModelState errors
+            // automatically before here. This response is primarily to satisfy
+            // the method signature.
             return ApiError.BadRequest(ApiCode.ValidationFailed, "Validation has failed.");
         }
 

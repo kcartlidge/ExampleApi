@@ -12,6 +12,10 @@
     - Takes a request model
     - Validates (always passes; no model rules yet)
   - Added `<remarks>` to further document the API
+  - Use a request model for the POST
+    - Presentation layer does not have access to all data fields
+    - Validation rules are added to the request model
+  - The `PeopleRepo` persists added `Person` (until a restart)
 - 2022-10-07
   - Initial commit
   - Standard repo files added

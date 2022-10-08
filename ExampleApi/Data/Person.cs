@@ -1,4 +1,4 @@
-namespace ExampleApi.Models
+namespace ExampleApi.Data
 {
     /// <summary>A person in the system.</summary>
     public class Person
