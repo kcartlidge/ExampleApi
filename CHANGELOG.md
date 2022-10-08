@@ -6,6 +6,7 @@
   - Include launch instructions in [`README.md`](./README.md)
   - Relocating the Swagger page by changing the URL
   - Add SwaggerDoc API metadata
+  - Suppress "Missing XML comment" warnings
 - 2022-10-07
   - Initial commit
   - Standard repo files added
