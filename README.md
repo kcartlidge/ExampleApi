@@ -18,7 +18,7 @@ An example API in C#/DotNet 6 (Core) with sequential commits to show reference c
 - Run the API
   - Either navigate in a command prompt/terminal and run `dotnet run --project ExampleApi`
   - Or open in [Visual Studio](https://visualstudio.microsoft.com/vs/) or [Rider](https://www.jetbrains.com/rider/) and run the *ExampleApi* project from there
-- [When run the API will be available here](https://localhost:5001/swagger/index.html)
+- [When run the API will be available here](https://localhost:5001/docs)
 
 ## Creating the API
 

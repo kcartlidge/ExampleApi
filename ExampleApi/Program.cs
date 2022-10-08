@@ -1,5 +1,6 @@
 using ExampleApi.Middleware;
 using ExampleApi.Swagger;
+using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
 using System.Reflection;
 
@@ -41,7 +42,12 @@ namespace ExampleApi
                 app.UseSwagger();
 
                 // Remove the "Try it Out" button.
-                app.UseSwaggerUI(o => o.EnableTryItOutByDefault());
+                app.UseSwaggerUI(o =>
+                {
+                    o.EnableTryItOutByDefault();
+                    o.SwaggerEndpoint("/swagger/v1/swagger.json", "v1");
+                    o.RoutePrefix = "docs";
+                });
             }
 
             app.UseHttpsRedirection();

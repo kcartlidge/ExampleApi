@@ -4,6 +4,7 @@
   - Stop launching the browser when starting
   - Add a Swagger page screenshot
   - Include launch instructions in [`README.md`](./README.md)
+  - Relocating the Swagger page by changing the URL
 - 2022-10-07
   - Initial commit
   - Standard repo files added
