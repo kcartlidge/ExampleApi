@@ -5,6 +5,7 @@
   - Add a Swagger page screenshot
   - Include launch instructions in [`README.md`](./README.md)
   - Relocating the Swagger page by changing the URL
+  - Add SwaggerDoc API metadata
 - 2022-10-07
   - Initial commit
   - Standard repo files added

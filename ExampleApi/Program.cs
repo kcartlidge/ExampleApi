@@ -19,8 +19,24 @@ namespace ExampleApi
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen(c =>
             {
-                // Set the API title.
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Example API", Version = "v1", });
+                // Set the API metadata.
+                c.SwaggerDoc("v1", new OpenApiInfo
+                {
+                    Title = "Example API",
+                    Version = "v1",
+                    Description = "An example DotNet 6+ API",
+                    TermsOfService = new Uri("https://example.com"),
+                    Contact = new OpenApiContact
+                    {
+                        Name = "The Dev Team",
+                        Url = new Uri("https://example.com")
+                    },
+                    License = new OpenApiLicense
+                    {
+                        Name = "API License",
+                        Url = new Uri("https://choosealicense.com/licenses")
+                    },
+                });
 
                 // Require a correlation ID.
                 c.OperationFilter<CorrelationIdAttribute>();

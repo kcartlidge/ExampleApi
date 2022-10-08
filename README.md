@@ -42,6 +42,6 @@ Please note that this repo includes a `.editorconfig` file. Visual Studio will h
 
 ## Sample Swagger page
 
-This is from when the XML summary comments have just been included.
+This is from when the XML summary comments have just been included and metadata added to the SwaggerDoc details in `Program.cs`.
 
-![Sample Swagger Page (Early On)](./Screenshots/04-Sample-Swagger-Page-Early-On.png)
+![Sample Swagger Page](./Screenshots/04-Sample-Swagger-Page-With-Metadata.png)
