@@ -1,6 +1,5 @@
 using ExampleApi.Middleware;
 using ExampleApi.Swagger;
-using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
 using System.Reflection;
 
@@ -14,7 +13,12 @@ namespace ExampleApi
 
             // Add services to the container.
 
-            builder.Services.AddControllers();
+            builder.Services.AddControllers().ConfigureApiBehaviorOptions(o =>
+            {
+                // Turn off the automatic ModelState interception and standard response model.
+                o.SuppressModelStateInvalidFilter = true;
+            });
+
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen(c =>

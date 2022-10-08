@@ -16,6 +16,8 @@
     - Presentation layer does not have access to all data fields
     - Validation rules are added to the request model
   - The `PeopleRepo` persists added `Person` (until a restart)
+  - Suppress auto-handling of ModelState before controller logic
+  - Optionally populate `ApiError` with ModelState errors
 - 2022-10-07
   - Initial commit
   - Standard repo files added

@@ -50,9 +50,10 @@ namespace ExampleApi.Controllers
         public async Task<ActionResult> PostOK(PersonRequestModel person)
         {
             // Add the new Person if they pass validation.
-            // In reality, the ModelState checks are handled by Core itself
+            // By default the ModelState checks are handled by Core itself
             // before this point and invalid requests don't even hit this
-            // endpoint. This is a precautionary check.
+            // endpoint, but this is now overridden in Program.cs so we
+            // will now get invalid requests here too.
             if (ModelState.IsValid)
             {
                 // Safe to use the values as they passed the ModelState check.
@@ -65,11 +66,8 @@ namespace ExampleApi.Controllers
                 return Ok();
             }
 
-            // There are validation rules on the incoming model, however this
-            // will never be reached as Core handles the ModelState errors
-            // automatically before here. This response is primarily to satisfy
-            // the method signature.
-            return ApiError.BadRequest(ApiCode.ValidationFailed, "Validation has failed.");
+            // Return an ApiError with the ModelState errors mapped in.
+            return ApiError.BadRequest(ApiCode.ValidationFailed, "Validation has failed.", ModelState);
         }
 
         /// <summary>Example request returning 400 Bad Result with an ApiError response model.</summary>
